@@ -1,0 +1,9 @@
+h2 {
+  color: #333;
+  border-bottom: 2px solid #eaeaea;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}

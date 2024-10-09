@@ -1,0 +1,39 @@
+.item {
+  border: 1px solid red;
+  padding: 5px;
+}
+.sidebar {
+  height: 100vh;
+  background-color: black;
+  padding-top: 5px;
+}
+.sidebar a {
+  color: #bdb8b8;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+}
+.sidebar a:hover {
+  color: #fff;
+}
+.sidebar.collapsed {
+  width: 80px;
+}
+.sidebar.collapsed a {
+  text-align: center;
+  padding: 10px 5px;
+}
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+.main-content.collapsed {
+  margin-left: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

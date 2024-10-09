@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand logo" routerLink="/">ASM STORE</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+
+        <li class="d-flex nav-item dropdown">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active"
+            >Products</a
+          >
+
+          <button
+            class="btn dropdown-toggle m-0 p-0"
+            id="navbarDropdown"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            style="background-color: transparent; border: none; color: white"
+          ></button>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="products/laptop">Laptops</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="products/computer"
+                >Computers</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="products/mobile">Mobiles</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/services" routerLinkActive="active"
+            >Services</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contactus" routerLinkActive="active"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
