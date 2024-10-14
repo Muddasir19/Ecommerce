@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { Contactus1Component } from './contactus1/contactus1.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,7 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./services/services.module').then((m) => m.ServicesModule),
   },
-  { path: 'contactus', component: ContactusComponent },
+  { path: 'contactus', component: Contactus1Component },
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AppRoutingModule } from './app.routing.module';
 import { ProductService } from './product.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Contactus1Component } from './contactus1/contactus1.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     AboutComponent,
     ContactusComponent,
+    Contactus1Component,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [ProductService],
