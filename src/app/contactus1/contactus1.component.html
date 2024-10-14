@@ -30,42 +30,49 @@
     </div>
 
     <form
-      (ngSubmit)="onSubmit(myForm)"
-      #myForm="ngForm"
       class="bg-light col-lg-7 col-12 row p-3"
+      [formGroup]="myReactiveForm"
+      (ngSubmit)="onSubmit()"
     >
-      <div class="col-md-6 mb-3">
-        <label for="first-name" class="form-label">First Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="first-name"
-          name="firstName"
-          required
-          ngModel
-          #firstname="ngModel"
-        />
-        <small
-          class="text-danger"
-          *ngIf="!firstname.valid && firstname.touched"
-        >
-          Please Enter First Name</small
-        >
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="last-name" class="form-label">Last Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="last-name"
-          name="lastName"
-          required
-          ngModel
-          #lastname="ngModel"
-        />
-        <small class="text-danger" *ngIf="!lastname.valid && lastname.touched">
-          Please Enter Last Name</small
-        >
+      <div class="row m-0 p-0" formGroupName="fullName">
+        <div class="col-md-6 mb-3">
+          <label for="first-name" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            name="firstName"
+            formControlName="firstName"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+              !myReactiveForm.get('fullName.firstName')!.valid &&
+              myReactiveForm.get('fullName.firstName')!.touched
+            "
+          >
+            Please Enter First Name</small
+          >
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="last-name" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            name="lastName"
+            formControlName="lastName"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+              !myReactiveForm.get('fullName.lastName')!.valid &&
+              myReactiveForm.get('fullName.lastName')!.touched
+            "
+          >
+            Please Enter Last Name</small
+          >
+        </div>
       </div>
       <div class="col-md-6 mb-3">
         <label for="email" class="form-label">Email</label>
@@ -74,41 +81,52 @@
           class="form-control"
           id="email"
           name="email"
-          required
-          ngModel
-          #email="ngModel"
+          formControlName="email"
         />
-        <small class="text-danger" *ngIf="!email.valid && email.touched">
+        <small
+          class="text-danger"
+          *ngIf="
+            !myReactiveForm.get('email')!.valid &&
+            myReactiveForm.get('email')!.touched
+          "
+        >
           Please Enter Valid Email</small
         >
       </div>
       <div class="col-md-6 mb-3">
         <label for="phone-number" class="form-label">Phone Number</label>
-        <input
-          type="tel"
-          class="form-control"
-          id="phone-number"
-          name="phoneNumber"
-          required
-          ngModel
-          #phoneno="ngModel"
-        />
-        <small class="text-danger" *ngIf="!phoneno.valid && phoneno.touched">
+        <div class="phone-box">
+          <label class="prefix" for="phone-number">+92</label>
+          <input
+            type="text"
+            class="form-control ph"
+            id="phone-number"
+            name="phoneNumber"
+            maxlength="10"
+            formControlName="phoneNo"
+            placeholder="3000000000"
+          />
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            !myReactiveForm.get('phoneNo')!.valid &&
+            myReactiveForm.get('phoneNo')!.touched
+          "
+        >
           Please Enter Phone no</small
         >
       </div>
-      <!-- Select Subject Below -->
+      <!-- Select Query Below -->
       <div class="col-12 mb-3 row">
         <label class="form-label">Select Subject</label>
         <div class="col-sm-6">
           <input
             type="radio"
-            name="Query"
             id="General Query"
             value="General Query"
             class="form-check-input"
-            ngModel
-            [(ngModel)]="selectedQuery"
+            formControlName="query"
           />
           <label for="General Query" class="form-check-label ps-2"
             >General Query</label
@@ -117,36 +135,33 @@
         <div class="col-sm-6">
           <input
             type="radio"
-            name="Query"
+            name="query"
             id="Support"
             value="Support"
             class="form-check-input"
-            ngModel
-            [(ngModel)]="selectedQuery"
+            formControlName="query"
           />
           <label for="Support" class="form-check-label ps-2">Support</label>
         </div>
         <div class="col-sm-6">
           <input
             type="radio"
-            name="Query"
+            name="query"
+            formControlName="query"
             id="Feedback"
             class="form-check-input"
             value="Feedback"
-            ngModel
-            [(ngModel)]="selectedQuery"
           />
           <label for="Feedback" class="form-check-label ps-2">Feedback</label>
         </div>
         <div class="col-sm-6">
           <input
             type="radio"
-            name="Query"
+            name="query"
+            formControlName="query"
             id="Other"
             value="Other"
             class="form-check-input"
-            ngModel
-            [(ngModel)]="selectedQuery"
           />
           <label for="Other" class="form-check-label ps-2">Other</label>
         </div>
@@ -160,12 +175,17 @@
           id="message"
           name="message"
           rows="4"
-          minlength="15"
-          required
-          ngModel
-          #message="ngModel"
+          minlength="10 "
+          formControlName="message"
+          placeholder="Type Message Here"
         ></textarea>
-        <small class="text-danger" *ngIf="!message.valid && message.touched">
+        <small
+          class="text-danger"
+          *ngIf="
+            !myReactiveForm.get('message')?.valid &&
+            myReactiveForm.get('message')?.touched
+          "
+        >
           Please Enter Message</small
         >
       </div>
@@ -173,7 +193,7 @@
         <button
           type="submit"
           class="btn btn-primary"
-          [disabled]="!myForm.valid"
+          [disabled]="!myReactiveForm.valid"
         >
           Send Message
         </button>
