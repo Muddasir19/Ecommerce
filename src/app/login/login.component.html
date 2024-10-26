@@ -1,0 +1,41 @@
+<div class="container mt-5 vh-100">
+  <div class="row justify-content-center">
+    <form
+      class="col-12 col-md-8 col-lg-6 col-xl-4 shadow p-4 rounded bg-light"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <p class="text-center fs-1 mb-5 mt-5">Login</p>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          formControlName="userName"
+        />
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+
+      <button
+        class="col-12 btn btn-secondary text-white mt-2"
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+
+      <div class="col-12 text-end mt-3 mb-5">
+        <a routerLink="/signup">Don't Have Account? Signup Here</a>
+      </div>
+    </form>
+  </div>
+</div>

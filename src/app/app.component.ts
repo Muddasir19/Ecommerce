@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from './app-services/product.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  constructor() {
-    console.log('App');
-  }
-  title = 'demo-project2';
+  title = 'Ecomerence';
 }

@@ -1,0 +1,62 @@
+<div
+  *ngIf="loading"
+  class="text-danger d-flex align-items-center justify-content-center vh-100"
+>
+  <h1>Loading....</h1>
+</div>
+
+<div class="container mt-5" *ngIf="product">
+  <div class="row justify-content-center">
+    <div
+      class="col-12 col-md-10 card h-100 shadow border-0 d-flex p-4 p-md-5 justify-content-between"
+    >
+      <span mat-icon-button matTooltip="Remove item" routerLink="/products">
+        <mat-icon>arrow_back</mat-icon>
+      </span>
+
+      <div class="row">
+        <!-- Product image section -->
+        <div class="col-12 col-md-6 d-flex flex-column">
+          <div class="position-relative">
+            <img
+              [src]="product.image"
+              alt="Product Image"
+              class="card-img-top img-fluid"
+            />
+            <span
+              class="badge bg-warning rounded rounded-5 position-absolute top-0 end-0 mt-2 fs-5"
+            >
+              ${{ product.price }}
+            </span>
+          </div>
+          <a class="btn btn-primary my-2 col-12" (click)="addItemToCart()"
+            >Add to Cart</a
+          >
+        </div>
+        <!-- Product details section -->
+        <div class="col-12 col-md-6 card-body d-flex flex-column">
+          <h1 class="card-title mt-3 fw-bolder">
+            {{ product.title }}
+          </h1>
+          <p class="card-text mb-2 fs-4 text-dark mt-3">
+            <strong>Price :</strong>
+            <span class="fs-3 fw-bold">${{ product.price }}</span>
+          </p>
+          <p class="card-text mb-2">
+            <strong>Category :</strong>
+            {{ product.category }}
+          </p>
+          <p class="card-text mb-2">
+            <strong>Rating :</strong>
+            {{ product.rating.rate }}
+            ⭐
+          </p>
+          <p class="card-text">
+            <strong>Description :</strong>
+            {{ product.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

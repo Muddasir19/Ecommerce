@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand logo" routerLink="/">ASM STORE</a>
+    <a class="navbar-brand logo ms-2" routerLink="/home">
+      <img src="/logo.png" alt="ASM TECH" width="110px" class="bg-light" />
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -18,7 +20,7 @@
           <a
             class="nav-link active"
             aria-current="page"
-            routerLink="/"
+            routerLink="/home"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             >Home</a
@@ -26,9 +28,9 @@
         </li>
 
         <li class="d-flex nav-item dropdown">
-          <a class="nav-link" routerLink="/products" routerLinkActive="active"
-            >Products</a
-          >
+          <a class="nav-link" routerLink="/products" routerLinkActive="active">
+            Products
+          </a>
 
           <button
             class="btn dropdown-toggle m-0 p-0"
@@ -67,6 +69,80 @@
           <a class="nav-link" routerLink="/contactus" routerLinkActive="active"
             >Contact Us</a
           >
+        </li>
+      </ul>
+      <!-- <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="loggedInUserName !== ''">
+          <a class="nav-link" routerLink="/cart"
+            >Cart <sup>{{ items }}</sup></a
+          >
+        </li>
+        <li class="nav-item" *ngIf="loggedInUserName !== ''">
+          <div class="btn-group">
+            <button
+              class="btn btn-secondary btn-lg dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ loggedInUserName }}
+            </button>
+            <ul class="dropdown-menu">
+              <li class="nav-item">{{ loggedInUserName }}</li>
+              <li class="nav-item">
+                <a routerLink="/logout" (click)="toggleLogout()">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item" *ngIf="loggedInUserName == ''">
+          <a class="nav-link text-white" routerLink="/login"> Login</a>
+        </li>
+      </ul> -->
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item me-3">
+          <a class="nav-link position-relative" routerLink="/cart">
+            <i class="bi bi-cart"></i> Cart
+            <span
+              class="badge bg-light text-dark position-absolute top-0 start-100 translate-middle rounded-pill"
+            >
+              {{ items }}
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="loggedInUserName !== ''">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="userDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle"></i> {{ loggedInUserName }}
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="userDropdown"
+          >
+            <li class="dropdown-item text-muted">{{ loggedInUserName }}</li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/logout"
+                (click)="toggleLogout()"
+              >
+                <i class="bi bi-box-arrow-right"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="loggedInUserName === ''">
+          <a class="nav-link text-white" routerLink="/login">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
         </li>
       </ul>
     </div>

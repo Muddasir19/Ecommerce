@@ -1,13 +1,14 @@
 <div class="bg-secondary text-white text-center">
   <p class="mb-0">Flat <span class="text-warning">95% Off</span> Today!</p>
 </div>
-
-<navbar></navbar>
-<div class="row bg-dark">
-  <div class="col-2"><app-sidenav></app-sidenav></div>
-  <div class="col-12 col-md-8 col-md-7 bg-light">
-    <router-outlet></router-outlet>
+<div class="">
+  <navbar></navbar>
+  <div class="row bg-dark">
+    <div class="col-2 sidebar"><app-sidenav></app-sidenav></div>
+    <div class="col-12 col-md-8 col-md-7 bg-light">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- <div class="col-2"><app-sidenav2></app-sidenav2></div> -->
   </div>
-  <!-- <div class="col-2"><app-sidenav2></app-sidenav2></div> -->
+  <div><app-footer></app-footer></div>
 </div>
-<div><app-footer></app-footer></div>

@@ -4,3 +4,10 @@
 /* .navbar {
   background-color: black;
 } */
+a {
+  text-decoration: none;
+}
+
+img {
+  border-radius: 55px;
+}

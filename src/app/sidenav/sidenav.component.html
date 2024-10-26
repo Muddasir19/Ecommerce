@@ -1,7 +1,14 @@
 <div class="sidebar navbar-dark bg-dark">
-  <a routerLink="/">Home</a>
-  <a routerLink="products">Products</a>
-  <a routerLink="/services">Services</a>
-  <a class="nav-link" routerLink="/about">About</a>
-  <a routerLink="/contactus">Contact Us</a>
+  <a routerLink="/products">Categories</a>
+
+  <a routerLink="/products" (click)="selectCategory('electronis')"
+    >Electronis</a
+  >
+  <a routerLink="/products" (click)="selectCategory('jewelery')">Jewelery</a>
+  <a routerLink="/products" (click)="selectCategory('men\'s clothing')"
+    >Men's Clothing</a
+  >
+  <a routerLink="/products" (click)="selectCategory('women\'s clothing')"
+    >Women's Clothing</a
+  >
 </div>

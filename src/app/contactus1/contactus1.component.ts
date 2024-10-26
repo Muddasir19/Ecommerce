@@ -7,6 +7,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './contactus1.component.css',
 })
 export class Contactus1Component implements OnInit {
+  constructor() {
+    console.log('Contact us');
+  }
   myReactiveForm!: FormGroup;
 
   ngOnInit(): void {

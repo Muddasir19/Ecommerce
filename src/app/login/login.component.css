@@ -1,0 +1,12 @@
+input {
+  border-color: lightgrey;
+  border-radius: 10px;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+/* * {
+  border: 1px solid red;
+} */

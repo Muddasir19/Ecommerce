@@ -6,6 +6,12 @@ import { MobileComponent } from './mobile/mobile.component';
 import { ComputerComponent } from './computer/computer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ShortheadingPipe } from '../app-pipes/shortheading.pipe';
+import { ProductComponent } from './product/product.component';
+import { SmoothScrollarDirective } from './smooth-scrollar.directive';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const productRoutes: Routes = [
   {
@@ -13,6 +19,7 @@ const productRoutes: Routes = [
     component: ProductsComponent,
     children: [
       { path: '', component: HomeComponent },
+      { path: 'product/:id', component: ProductComponent },
       { path: 'laptop', component: LaptopComponent },
       { path: 'computer', component: ComputerComponent },
       { path: 'mobile', component: MobileComponent },
@@ -27,11 +34,17 @@ const productRoutes: Routes = [
     MobileComponent,
     ComputerComponent,
     HomeComponent,
+    ShortheadingPipe,
+    ProductComponent,
+    SmoothScrollarDirective,
   ],
-  imports: [CommonModule, RouterModule.forChild(productRoutes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(productRoutes),
+    MatIconModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+  ],
+  exports: [ShortheadingPipe],
 })
-export class ProductsModule {
-  constructor() {
-    console.log('Product Module');
-  }
-}
+export class ProductsModule {}

@@ -1,0 +1,17 @@
+img {
+  height: 500px;
+  width: 500px;
+}
+/* * {
+  border: 1px solid red;
+} */
+p {
+  font-size: large;
+}
+
+mat-icon:hover {
+  cursor: pointer;
+}
+span {
+  width: fit-content;
+}

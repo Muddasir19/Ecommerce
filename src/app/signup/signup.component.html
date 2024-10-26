@@ -1,0 +1,77 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <form
+      class="col-12 col-md-6 col-lg-4 shadow p-4 rounded bg-light"
+      (ngSubmit)="onSubmit()"
+      [formGroup]="signupForm"
+    >
+      <p class="fs-2 fw-bold text-center">Register</p>
+
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="Enter your first name"
+          formControlName="firstName"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="Enter your last name"
+          formControlName="lastName"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter your email"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Enter your password"
+          formControlName="password"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          placeholder="Confirm your password"
+          formControlName="confirmPassword"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-secondary col-12 mt-2"
+        [disabled]="!signupForm.valid"
+      >
+        Submit
+      </button>
+      <div class="text-end">
+        <a routerLink="/login">Already have account? Login Here</a>
+      </div>
+    </form>
+  </div>
+</div>
