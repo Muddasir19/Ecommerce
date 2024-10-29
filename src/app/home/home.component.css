@@ -1,0 +1,32 @@
+.card {
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.card-img-top {
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover; /* Cover the entire area */
+}
+
+.card-body {
+  padding: 1rem; /* Adjust padding for better spacing */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Adjust font size for the title */
+  font-weight: bold; /* Make the title bold */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .card {
+    margin: 0 auto; /* Center cards on small screens */
+  }
+}
+
+.custom-img-height {
+  min-height: 500px;
+}

@@ -1,14 +1,10 @@
-<div class="sidebar navbar-dark bg-dark">
-  <a routerLink="/products">Categories</a>
-
-  <a routerLink="/products" (click)="selectCategory('electronis')"
-    >Electronis</a
-  >
-  <a routerLink="/products" (click)="selectCategory('jewelery')">Jewelery</a>
-  <a routerLink="/products" (click)="selectCategory('men\'s clothing')"
+<div class="d-flex gap-5 justify-content-center mb-2">
+  <a routerLink="/products" [queryParams]="{ for: '' }">Products</a>
+  <a routerLink="/products" [queryParams]="{ for: 'jewelery' }">Jewelery</a>
+  <a routerLink="/products" [queryParams]="{ for: 'men\'s clothing' }"
     >Men's Clothing</a
   >
-  <a routerLink="/products" (click)="selectCategory('women\'s clothing')"
+  <a routerLink="/products" [queryParams]="{ for: 'women\'s clothing' }"
     >Women's Clothing</a
   >
 </div>

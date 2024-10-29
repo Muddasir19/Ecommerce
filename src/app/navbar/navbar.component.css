@@ -11,3 +11,6 @@ a {
 img {
   border-radius: 55px;
 }
+.profile_icon:hover {
+  cursor: pointer;
+}

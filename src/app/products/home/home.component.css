@@ -1,3 +1,6 @@
+.container-fluid {
+  min-height: 100vh;
+}
 .card {
   transition: transform 0.3s ease-in-out;
   border-radius: 10px;
@@ -28,9 +31,4 @@
 
 .btn-primary:hover {
   background-color: #0056b3;
-}
-
-.scrollable-container {
-  max-height: 100vh;
-  overflow-y: auto;
 }

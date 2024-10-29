@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
 
     let localITems = this._localStorageService.getItem();
     let localSummary = this._localStorageService.getSummary();
+    this.numberOfItemsSelected = parseInt(this._localStorageService.getCount());
 
     this.Products = localITems;
     this.Summary = localSummary;
@@ -129,11 +130,9 @@ export class CartComponent implements OnInit {
     });
   }
 
-  removeItem(id: any) {
-    const found = this.Products.find((product: any) => product.id == id);
-    const index = this.Products.indexOf(found);
-
-    console.log(found);
+  removeItem(id: number) {
+    const found = this.Products[id];
+    const index = id;
 
     this.numberOfItemsSelected--;
 
@@ -147,6 +146,7 @@ export class CartComponent implements OnInit {
     this.Products.splice(index, 1);
     this._productService.numberOfItemInCart.next(this.numberOfItemsSelected);
 
+    this._localStorageService.addCount(this.numberOfItemsSelected);
     this._localStorageService.addItem(this.Products);
     this._productService.summary.next(this.Summary);
     // localStorage.setItem('products', JSON.stringify(this.Products));

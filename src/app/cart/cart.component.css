@@ -11,3 +11,7 @@
   margin-bottom: 5px;
   padding: 5px;
 } */
+
+.main_container {
+  min-height: 100vh;
+}

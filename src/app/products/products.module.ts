@@ -12,6 +12,8 @@ import { SmoothScrollarDirective } from './smooth-scrollar.directive';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoadingComponent } from '../loading/loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const productRoutes: Routes = [
   {
@@ -37,6 +39,7 @@ const productRoutes: Routes = [
     ShortheadingPipe,
     ProductComponent,
     SmoothScrollarDirective,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +47,7 @@ const productRoutes: Routes = [
     MatIconModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
   exports: [ShortheadingPipe],
 })

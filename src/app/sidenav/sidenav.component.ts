@@ -8,12 +8,4 @@ import { ProductService } from '../app-services/product.service';
 })
 export class SidenavComponent {
   constructor(private _productService: ProductService) {}
-  selectCategory(category: any) {
-    this._productService.getCategory(category).subscribe({
-      next: (resp) => {
-        this._productService.showProductsArray.next(resp);
-        console.log(resp);
-      },
-    });
-  }
 }
