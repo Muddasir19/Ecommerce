@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { Sidenav2Component } from './sidenav2/sidenav2.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -25,6 +24,9 @@ import { ServicesModule } from './services/services.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NavbarComponent,
     HomeComponent,
     SidenavComponent,
-    Sidenav2Component,
     FooterComponent,
     AboutComponent,
     ContactusComponent,
@@ -41,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     PagenotfoundComponent,
     SignupComponent,
     CartComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
+    MatSelectModule,
+    MatDialogModule,
   ],
   providers: [ProductService, AuthService, provideAnimationsAsync()],
   bootstrap: [AppComponent],

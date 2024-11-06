@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand logo ms-2" routerLink="/home">
+    <a class="navbar-brand ms-2" routerLink="/home">
       <img src="/logo.png" alt="ASM TECH" width="110px" class="bg-light" />
     </a>
     <button
@@ -41,18 +41,25 @@
             >Contact Us</a
           >
         </li>
+
+        <!-- Dropdown for Year Selection -->
+        <!-- <li class="nav-item">
+          <mat-form-field class="select-boxes">
+            <mat-select [(ngModel)]="selectedValue" placeholder="Select Year">
+              <mat-option *ngFor="let year of years" [value]="year">
+                {{ year }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </li> -->
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item me-3">
-          <a class="nav-link position-relative" routerLink="/cart">
-            <i class="fas fa-shopping-cart">
-              <span class="material-icons" matTooltip="Cart"
-                >shopping_cart</span
-              >
-            </i>
+        <li class="nav-item me-2 mt-1 position-relative">
+          <a class="nav-link" routerLink="/cart" matTooltip="Cart">
+            <span class="material-icons custom-color">shopping_cart</span>
             <span
-              class="badge bg-light text-dark position-absolute top-0 start-100 translate-middle rounded-pill"
+              class="badge position-absolute top-0 start-100 translate-middle rounded-pill"
               *ngIf="items > 0"
             >
               {{ items }}
@@ -60,26 +67,21 @@
           </a>
         </li>
 
-        <li
-          class="nav-item dropdown text-white"
-          *ngIf="loggedInUserName !== ''"
-        >
-          <i
-            class="p-1 mt-1 profile_icon"
+        <li class="nav-item dropdown" *ngIf="loggedInUserName">
+          <a
+            class="nav-link dropdown-toggle"
             id="userDropdown"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            role="button"
           >
-            <span class="material-icons">account_circle</span>
-          </i>
+            <span class="material-icons fs-2 custom-color">account_circle</span>
+          </a>
           <ul
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="userDropdown"
-            role="menu"
           >
-            <li class="dropdown-item text-muted" role="menuitem">
-              {{ loggedInUserName }}
-            </li>
+            <li class="dropdown-item text-muted">{{ loggedInUserName }}</li>
             <hr class="dropdown-divider" />
             <li>
               <a
@@ -92,9 +94,8 @@
             </li>
           </ul>
         </li>
-
-        <li class="nav-item" *ngIf="loggedInUserName === ''">
-          <a class="nav-link text-white" routerLink="/login">
+        <li class="nav-item" *ngIf="!loggedInUserName">
+          <a class="nav-link" routerLink="/login">
             <i class="bi bi-box-arrow-in-right"></i> Login
           </a>
         </li>

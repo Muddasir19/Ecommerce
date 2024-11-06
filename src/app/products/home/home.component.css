@@ -9,6 +9,10 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+.card-title {
+  font-size: 1.25rem; /* Adjust font size for the title */
+  font-weight: bold; /* Make the title bold */
+}
 
 .card-img-top {
   border-top-left-radius: 10px;
@@ -31,4 +35,7 @@
 
 .btn-primary:hover {
   background-color: #0056b3;
+}
+.custom-text {
+  font-size: 0.9vw; /* Adjust based on your preference */
 }

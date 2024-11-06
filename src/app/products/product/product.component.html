@@ -21,6 +21,7 @@
             <img
               [src]="product.image"
               alt="Product Image"
+              style="object-fit: contain; height: 500px"
               class="card-img-top img-fluid"
             />
             <span
@@ -29,9 +30,7 @@
               ${{ product.price }}
             </span>
           </div>
-          <a class="btn btn-primary my-2 col-12" (click)="addItemToCart()"
-            >Add to Cart</a
-          >
+          <a class="btn my-2 col-12" (click)="addItemToCart()">Add to Cart</a>
         </div>
         <!-- Product details section -->
         <div class="col-12 col-md-6 card-body d-flex flex-column">

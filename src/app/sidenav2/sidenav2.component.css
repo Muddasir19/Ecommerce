@@ -1,5 +1,4 @@
-@media screen and (max-width: 768px) {
-  .side-nav {
-    display: none;
-  }
+input {
+  border: none;
+  padding: 2px;
 }

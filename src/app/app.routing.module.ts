@@ -15,16 +15,15 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', canActivate: [authGuard], component: CartComponent },
   {
     path: 'products',
-    canActivate: [authGuard],
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: 'services',
-    canActivate: [authGuard],
+
     loadChildren: () =>
       import('./services/services.module').then((m) => m.ServicesModule),
   },

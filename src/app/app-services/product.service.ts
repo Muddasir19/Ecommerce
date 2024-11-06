@@ -22,7 +22,6 @@ export class ProductService {
       `${environment.baseURL}/products/Category/${category}`
     );
   }
-
   public products = new BehaviorSubject([]);
   public showProductsArray = new BehaviorSubject([]);
   public singleProduct = {};

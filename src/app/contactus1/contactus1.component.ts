@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contactus1',
@@ -21,11 +21,16 @@ export class Contactus1Component implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       phoneNo: new FormControl(null, Validators.required),
       query: new FormControl('Other'),
+      skills: new FormArray([new FormControl(null)]),
       message: new FormControl(null, Validators.required),
     });
   }
 
+  get skillsFormValue(): FormArray {
+    return this.myReactiveForm.get('skills') as FormArray;
+  }
+
   onSubmit() {
-    console.log(this.myReactiveForm);
+    console.log(this.myReactiveForm.value);
   }
 }

@@ -1,8 +1,3 @@
-a {
-  text-decoration: none;
-  color: white;
-}
-a:hover {
-  color: red;
-  cursor: pointer;
+.sidebar {
+  background-color: var(--primary-color);
 }

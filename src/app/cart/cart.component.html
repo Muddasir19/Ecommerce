@@ -14,6 +14,7 @@
         <button
           mat-icon-button
           color="warn"
+          class="custom-text"
           (click)="clearCart()"
           matTooltip="Clear cart"
         >
@@ -31,6 +32,7 @@
             <button
               mat-icon-button
               color="warn"
+              class="custom-text"
               matTooltip="Remove"
               (click)="removeItem(i)"
             >
@@ -49,7 +51,7 @@
           <div class="col-12 col-md-5">
             <h5 class="fw-bold mb-1">{{ prod.title | shortheading }}</h5>
             <p class="text-muted mb-2">{{ prod.description | shortheading }}</p>
-            <p class="fw-bold h5 text-primary">Price: ${{ prod.price }}</p>
+            <p class="fw-bold h5 custom-text">Price: ${{ prod.price }}</p>
           </div>
           <div class="col-12 col-md-3 text-center">
             <div
@@ -100,7 +102,7 @@
           <span>$ {{ Summary.total | number : "1.2-2" }}</span>
         </div>
 
-        <button class="btn btn-primary w-100" (click)="checkOut()">
+        <button class="btn custom-btn w-100" (click)="checkOut()">
           PROCEED TO CHECKOUT ({{ Summary.items }})
         </button>
       </div>

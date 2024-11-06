@@ -1,14 +1,34 @@
-<div class="bg-secondary text-white text-center">
+<!-- <div class="bg-secondary text-white text-center">
   <p class="mb-0">Flat <span class="text-warning">95% Off</span> Today!</p>
+</div> -->
+
+<div
+  id="carouselExampleControls"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-inner text-center">
+    <ng-container *ngFor="let msg of messages">
+      <div class="{{ msg.class }}" data-bs-interval="2000">
+        <p class="m-0">
+          {{ msg.text }}
+        </p>
+      </div>
+    </ng-container>
+  </div>
 </div>
+
 <div class="">
   <navbar></navbar>
-  <div class="d-flex flex-column bg-dark">
+
+  <button mat-button (click)="openDialog()">Dialog</button>
+
+  <div class="d-flex flex-column">
     <div class="sidebar"><app-sidenav></app-sidenav></div>
     <div class="bg-light">
       <router-outlet></router-outlet>
     </div>
-    <!-- <div class="col-2"><app-sidenav2></app-sidenav2></div> -->
+    <!-- <div class="col-2"><app-sidenav2></app-sidenav2></div>  -->
   </div>
   <div><app-footer></app-footer></div>
 </div>
