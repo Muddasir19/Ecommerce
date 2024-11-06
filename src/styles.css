@@ -1,3 +1,31 @@
+:root {
+  --primary-color: #a18a68;
+  --secondary-color: #c4a77d;
+  --button-color: #a18a68;
+  --button-color-text: white;
+  --text-color-price: red;
+  --text-color-heading: black;
+  --text-color: black;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+} /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}

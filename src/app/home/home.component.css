@@ -1,0 +1,100 @@
+.card {
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.card-img-top {
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover; /* Cover the entire area */
+}
+
+.card-body {
+  padding: 1rem; /* Adjust padding for better spacing */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Adjust font size for the title */
+  font-weight: bold; /* Make the title bold */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .card {
+    margin: 0 auto; /* Center cards on small screens */
+  }
+}
+
+.custom-img-height {
+  min-height: 500px;
+}
+
+/* .carousel {
+  border: 1px solid red;
+  height: 500px;
+} */
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 1.25vw; /* Slightly larger font size */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.custom-text {
+  font-size: 0.9vw; /* Adjust based on your preference */
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn {
+  width: 100%;
+  background-color: var(--button-color);
+  color: var(--button-color-text);
+}
+
+.carousel-item-image {
+  object-fit: cover;
+}
+
+.custom-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease;
+  margin: 0 4px;
+}
+
+.custom-indicator.active {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.custom-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.custom-carousel-caption {
+  text-align: center;
+  top: 0%;
+  font-size: x-large;
+  font-weight: bolder;
+  color: white;
+}
+.custom-btn {
+  background-color: rgb(255, 0, 0);
+  width: fit-content;
+}

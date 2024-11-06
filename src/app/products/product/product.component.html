@@ -1,11 +1,11 @@
 <div
   *ngIf="loading"
-  class="text-danger d-flex align-items-center justify-content-center vh-100"
+  class="text-danger d-flex justify-content-center align-items-center vh-100"
 >
-  <h1>Loading....</h1>
+  <app-loading></app-loading>
 </div>
 
-<div class="container mt-5" *ngIf="product">
+<div class="container mt-5 mb-5" *ngIf="product">
   <div class="row justify-content-center">
     <div
       class="col-12 col-md-10 card h-100 shadow border-0 d-flex p-4 p-md-5 justify-content-between"
@@ -21,6 +21,7 @@
             <img
               [src]="product.image"
               alt="Product Image"
+              style="object-fit: contain; height: 500px"
               class="card-img-top img-fluid"
             />
             <span
@@ -29,9 +30,7 @@
               ${{ product.price }}
             </span>
           </div>
-          <a class="btn btn-primary my-2 col-12" (click)="addItemToCart()"
-            >Add to Cart</a
-          >
+          <a class="btn my-2 col-12" (click)="addItemToCart()">Add to Cart</a>
         </div>
         <!-- Product details section -->
         <div class="col-12 col-md-6 card-body d-flex flex-column">

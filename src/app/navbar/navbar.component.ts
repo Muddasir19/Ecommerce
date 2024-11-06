@@ -18,6 +18,9 @@ export class NavbarComponent implements OnInit {
   ) {}
   public items: number = -1;
 
+  public selectedValue = '2023';
+  public years = ['2024', '2023', '2022', '2021'];
+
   loggedInUserName: string = '';
 
   ngOnInit(): void {

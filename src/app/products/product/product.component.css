@@ -15,3 +15,7 @@ mat-icon:hover {
 span {
   width: fit-content;
 }
+.btn {
+  background-color: var(--button-color);
+  color: var(--button-color-text);
+}

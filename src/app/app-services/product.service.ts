@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { environment } from '../../env';
 
 @Injectable({
   providedIn: 'root',
@@ -9,19 +10,18 @@ export class ProductService {
   constructor(public http: HttpClient) {}
 
   public getProducts(): Observable<any> {
-    return this.http.get<any>('https://fakestoreapi.com/products');
+    return this.http.get<any>(`${environment.baseURL}/products`);
   }
 
   public getSingleProduct(id: any): Observable<any> {
-    return this.http.get<any>(`https://fakestoreapi.com/products/${id}`);
+    return this.http.get<any>(`${environment.baseURL}/products/${id}`);
   }
 
   public getCategory(category: any): Observable<any> {
     return this.http.get<any>(
-      `https://fakestoreapi.com/products/Category/${category}`
+      `${environment.baseURL}/products/Category/${category}`
     );
   }
-
   public products = new BehaviorSubject([]);
   public showProductsArray = new BehaviorSubject([]);
   public singleProduct = {};

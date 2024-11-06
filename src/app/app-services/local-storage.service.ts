@@ -19,7 +19,8 @@ export class LocalStorageService {
     return products ? JSON.parse(products) : [];
   }
   public getCount() {
-    return localStorage.getItem('count');
+    let count = localStorage.getItem('count') || '0';
+    return count;
   }
 
   public addSummary(summary: any) {

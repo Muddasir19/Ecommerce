@@ -1,3 +1,6 @@
+.container-fluid {
+  min-height: 100vh;
+}
 .card {
   transition: transform 0.3s ease-in-out;
   border-radius: 10px;
@@ -5,6 +8,10 @@
 .card:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+.card-title {
+  font-size: 1.25rem; /* Adjust font size for the title */
+  font-weight: bold; /* Make the title bold */
 }
 
 .card-img-top {
@@ -29,8 +36,6 @@
 .btn-primary:hover {
   background-color: #0056b3;
 }
-
-.scrollable-container {
-  max-height: 100vh;
-  overflow-y: auto;
+.custom-text {
+  font-size: 0.9vw; /* Adjust based on your preference */
 }

@@ -3,6 +3,7 @@
     <p class="fs-2 fw-bold m-0 p-0">Contact US</p>
     <p class="m-0 p-0">Any question or remarks? Just write us a message!</p>
   </div>
+
   <div class="row m-2 h-100">
     <div class="bg-secondary text-white col-lg-5 col-12 p-3 mb-4">
       <div class="d-flex flex-column align-content-between h-100">
@@ -165,6 +166,18 @@
           />
           <label for="Other" class="form-check-label ps-2">Other</label>
         </div>
+      </div>
+
+      <div class="form-group" formArrayName="skills">
+        <label>Skills</label>
+        <input
+          type="text"
+          class="form-control my-2 w-25"
+          placeholder="Add Skills"
+          *ngFor="let skill of skillsFormValue.controls; let i = index"
+          [formControlName]="i"
+        />
+        <button class="btn btn-success btn-sm p-1">Add Skills</button>
       </div>
 
       <!-- Message Below -->

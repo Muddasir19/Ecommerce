@@ -58,4 +58,10 @@ export class LoginComponent implements OnInit {
       verticalPosition: 'top',
     });
   }
+
+  getuser() {
+    this._authService.getSingleUser().subscribe((resp) => {
+      console.log(resp);
+    });
+  }
 }

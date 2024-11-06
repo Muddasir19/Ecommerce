@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../app-services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,20 +12,41 @@ export class HomeComponent implements OnInit {
   count = -1;
   loading: boolean = true;
   params = '';
-  constructor(private _ProductService: ProductService) {}
+  constructor(
+    private _ProductService: ProductService,
+    private activatedRoute: ActivatedRoute
+  ) {}
   ngOnInit() {
-    this._ProductService.getProducts().subscribe({
+    this.activatedRoute.queryParamMap.subscribe((resp: any) => {
+      let queryParam = resp.get('for');
+      console.log(queryParam);
+
+      if (queryParam) {
+        this._ProductService.getCategory(queryParam).subscribe({
+          next: (resp) => {
+            this.loading = false;
+            this.Products = resp;
+            this._ProductService.products.next(resp);
+            console.log(resp);
+          },
+        });
+      } else {
+        this._ProductService.getProducts().subscribe({
+          next: (resp) => {
+            this.loading = false;
+            this.Products = resp;
+            this._ProductService.products.next(resp);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+      }
+    });
+    this._ProductService.showProductsArray.subscribe({
       next: (resp) => {
-        this.loading = false;
-        this._ProductService.showProductsArray.next(resp);
-      },
-      error: (err) => {
-        console.log(err);
+        this.Products = resp;
       },
     });
-
-    this._ProductService.showProductsArray.subscribe(
-      (data) => (this.Products = data)
-    );
   }
 }
