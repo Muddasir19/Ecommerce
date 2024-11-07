@@ -4,6 +4,10 @@ import { take } from 'rxjs';
 import { LocalStorageService } from '../app-services/local-storage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../app-services/auth.service';
+import { DialogComponent } from '../dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { OrderReportComponent } from '../orderreport/orderreport.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -16,11 +20,16 @@ export class CartComponent implements OnInit {
     private _productService: ProductService,
     private _localStorageService: LocalStorageService,
     private snackBar: MatSnackBar,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private dialog: MatDialog,
+    private route: Router
   ) {}
+
+  openDialog() {}
 
   Summary: any = { items: 0, shippingFee: 0, subTotal: 0, total: 0 };
   loggedInUser = '';
+  confirm: boolean = false;
 
   numberOfItemsSelected = 0;
   ngOnInit(): void {
@@ -93,33 +102,62 @@ export class CartComponent implements OnInit {
 
   // Proceed to checkOut
   checkOut() {
-    this.showSnackbar('Your Order is Placed');
-    this._productService.summary.next({
-      items: 0,
-      shippingFee: 10,
-      subTotal: 0,
-      total: 0,
-    });
-    this._productService.cartProductsArray.next([]);
-    this._productService.numberOfItemInCart.next(0);
-    this.Products = [];
+    this.dialog
+      .open(DialogComponent, {
+        data: { title: 'Order', message: 'Do You Want to Place Order' },
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (!res) return;
+
+        this.dialog.open(OrderReportComponent, {
+          data: {
+            title: 'Placed Order Report',
+            message: 'Order Placed Successfully',
+            order: this._localStorageService.getItem(),
+            summary: this.Summary,
+          },
+        });
+        this._productService.summary.next({
+          items: 0,
+          shippingFee: 10,
+          subTotal: 0,
+          total: 0,
+        });
+        this._productService.cartProductsArray.next([]);
+        this._productService.numberOfItemInCart.next(0);
+        this.Products = [];
+        localStorage.setItem('products', '[]');
+        localStorage.setItem('summary', '{}');
+        localStorage.setItem('count', '0');
+        this.route.navigate(['/home']);
+      });
   }
 
   clearCart() {
-    this.showSnackbar('Cart Empty');
-    this._productService.summary.next({
-      items: 0,
-      shippingFee: 10,
-      subTotal: 0,
-      total: 0,
-    });
-    this._productService.cartProductsArray.next([]);
-    this._productService.numberOfItemInCart.next(0);
-    this.Products = [];
+    this.dialog
+      .open(DialogComponent, {
+        data: { title: 'Cart', message: 'Do You Want to Clear Cart' },
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (!res) return;
 
-    localStorage.removeItem('products');
-    localStorage.removeItem('summary');
-    localStorage.setItem('count', '0');
+        this.showSnackbar('Cart Empty');
+        this._productService.summary.next({
+          items: 0,
+          shippingFee: 10,
+          subTotal: 0,
+          total: 0,
+        });
+        this._productService.cartProductsArray.next([]);
+        this._productService.numberOfItemInCart.next(0);
+        this.Products = [];
+
+        localStorage.removeItem('products');
+        localStorage.removeItem('summary');
+        localStorage.setItem('count', '0');
+      });
   }
 
   private showSnackbar(message: string) {
@@ -131,25 +169,34 @@ export class CartComponent implements OnInit {
   }
 
   removeItem(id: number) {
-    const found = this.Products[id];
-    const index = id;
+    this.dialog
+      .open(DialogComponent, {
+        data: { title: 'Cart', message: 'Do You Want to Remove Item' },
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (!res) return;
 
-    this.numberOfItemsSelected--;
+        const found = this.Products[id];
+        const index = id;
 
-    this.Summary.items = this.Summary.items - parseInt(found.quantity);
+        this.numberOfItemsSelected--;
 
-    this.Summary.subTotal =
-      this.Summary.subTotal - found.quantity * found.price;
+        this.Summary.items = this.Summary.items - parseInt(found.quantity);
 
-    this.Summary.total = this.Summary.subTotal + this.Summary.shippingFee;
+        this.Summary.subTotal =
+          this.Summary.subTotal - found.quantity * found.price;
 
-    this.Products.splice(index, 1);
-    this._productService.numberOfItemInCart.next(this.numberOfItemsSelected);
+        this.Summary.total = this.Summary.subTotal + this.Summary.shippingFee;
 
-    this._localStorageService.addCount(this.numberOfItemsSelected);
-    this._localStorageService.addItem(this.Products);
-    this._productService.summary.next(this.Summary);
-    // localStorage.setItem('products', JSON.stringify(this.Products));
-    // localStorage.setItem('products', JSON.stringify(this.Summary));
+        this.Products.splice(index, 1);
+        this._productService.numberOfItemInCart.next(
+          this.numberOfItemsSelected
+        );
+
+        this._localStorageService.addCount(this.numberOfItemsSelected);
+        this._localStorageService.addItem(this.Products);
+        this._productService.summary.next(this.Summary);
+      });
   }
 }

@@ -6,12 +6,9 @@ import { HomeComponent } from './home/home.component';
 import { ShortheadingPipe } from '../app-pipes/shortheading.pipe';
 import { ProductComponent } from './product/product.component';
 import { SmoothScrollarDirective } from './smooth-scrollar.directive';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { LoadingComponent } from '../loading/loading.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Sidenav2Component } from '../sidenav2/sidenav2.component';
+import { LoadingComponent } from '../loading/loading.component';
+import { SharedModule } from '../app-modules/shared.module';
 
 const productRoutes: Routes = [
   {
@@ -34,14 +31,7 @@ const productRoutes: Routes = [
     SmoothScrollarDirective,
     LoadingComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(productRoutes),
-    MatIconModule,
-    MatSnackBarModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-  ],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(productRoutes)],
   exports: [ShortheadingPipe],
 })
 export class ProductsModule {}

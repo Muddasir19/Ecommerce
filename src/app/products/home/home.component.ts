@@ -19,15 +19,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParamMap.subscribe((resp: any) => {
       let queryParam = resp.get('for');
-      console.log(queryParam);
-
       if (queryParam) {
         this._ProductService.getCategory(queryParam).subscribe({
           next: (resp) => {
             this.loading = false;
             this.Products = resp;
             this._ProductService.products.next(resp);
-            console.log(resp);
           },
         });
       } else {

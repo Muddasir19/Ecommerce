@@ -21,12 +21,10 @@ import { CartComponent } from './cart/cart.component';
 import { ProductsModule } from './products/products.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ServicesModule } from './services/services.module';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog';
+
 import { DialogComponent } from './dialog/dialog.component';
+import { SharedModule } from './app-modules/shared.module';
+import { OrderReportComponent } from './orderreport/orderreport.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +41,7 @@ import { DialogComponent } from './dialog/dialog.component';
     SignupComponent,
     CartComponent,
     DialogComponent,
+    OrderReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,11 +51,7 @@ import { DialogComponent } from './dialog/dialog.component';
     HttpClientModule,
     ProductsModule,
     ServicesModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatSelectModule,
-    MatDialogModule,
+    SharedModule,
   ],
   providers: [ProductService, AuthService, provideAnimationsAsync()],
   bootstrap: [AppComponent],

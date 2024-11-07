@@ -10,7 +10,7 @@
   <div class="carousel-inner text-center">
     <ng-container *ngFor="let msg of messages">
       <div class="{{ msg.class }}" data-bs-interval="2000">
-        <p class="m-0">
+        <p class="m-0 custom-p-txt">
           {{ msg.text }}
         </p>
       </div>
@@ -20,8 +20,6 @@
 
 <div class="">
   <navbar></navbar>
-
-  <button mat-button (click)="openDialog()">Dialog</button>
 
   <div class="d-flex flex-column">
     <div class="sidebar"><app-sidenav></app-sidenav></div>

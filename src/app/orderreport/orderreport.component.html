@@ -1,0 +1,46 @@
+<mat-dialog-actions
+  ><button mat-icon-button [mat-dialog-close]="true" matTooltip="Close">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-dialog-actions>
+<div>
+  <p mat-dialog-title>{{ data.title }}</p>
+</div>
+
+<mat-dialog-content class="mat-typography">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of data.order">
+        <td>
+          <img
+            *ngIf="prod.image"
+            [src]="prod.image"
+            alt="Product Image"
+            class="img-fluid rounded"
+            style="max-width: 120px; height: auto"
+          />
+        </td>
+        <td>${{ prod.price }}</td>
+        <td>{{ prod.quantity }}</td>
+        <td class="fw-bold">${{ prod.price * prod.quantity }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <div class="text-end pe-3">
+    <p>Shipping Fee : $ {{ data.summary.shippingFee }}</p>
+
+    <hr />
+    <p class="fw-bold">Total : $ {{ data.summary.total | number }}</p>
+  </div>
+</mat-dialog-content>

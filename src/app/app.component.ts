@@ -1,8 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +9,7 @@ import { DialogComponent } from './dialog/dialog.component';
 })
 export class AppComponent implements OnInit {
   title = 'Ecomerence';
-  constructor(private dialog: MatDialog) {}
+  constructor() {}
 
   formGroupData!: FormGroup;
 
@@ -26,9 +24,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroupData = new FormGroup({});
-  }
-
-  openDialog() {
-    this.dialog.open(DialogComponent);
   }
 }
