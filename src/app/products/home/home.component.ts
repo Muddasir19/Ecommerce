@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe((resp: any) => {
       let queryParam = resp.get('for');
       if (queryParam) {
+        this.loading = true;
         this._ProductService.getCategory(queryParam).subscribe({
           next: (resp) => {
             this.loading = false;
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
           },
         });
       } else {
+        this.loading = true;
         this._ProductService.getProducts().subscribe({
           next: (resp) => {
             this.loading = false;

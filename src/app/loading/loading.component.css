@@ -1,3 +1,3 @@
-.looder-color {
-  color: var(--primary-color);
+::ng-deep mat-progress-spinner circle {
+  stroke: var(--primary-color);
 }
