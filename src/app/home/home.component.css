@@ -88,13 +88,94 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 .custom-carousel-caption {
-  text-align: center;
-  top: 0%;
+  width: 25%;
+  text-align: start;
+  left: 15%;
+  top: 50%;
   font-size: x-large;
   font-weight: bolder;
   color: white;
 }
 .custom-btn {
-  background-color: rgb(255, 0, 0);
+  background-color: var(--primary-color);
+  color: white;
   width: fit-content;
+  transition: 0.5s;
+}
+.custom-btn:hover {
+  background-color: var(--secondary-color);
+  color: whitesmoke;
+}
+
+.cargo-container {
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.obj {
+  animation: move 4s cubic-bezier(0.02, 0.76, 0.76, 0.02) infinite;
+  margin: 0;
+  padding: 0;
+}
+@keyframes move {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+@media (max-width: 768px) {
+  .cargo-container {
+    max-width: 300px;
+  }
+  .obj {
+    animation-duration: 4s;
+  }
+}
+
+@media (max-width: 576px) {
+  .cargo-container {
+    max-width: 200px;
+  }
+  .obj {
+    animation-duration: 3s;
+  }
+}
+
+.custom-btn {
+  font-size: 22px;
+  border: 0;
+  position: relative;
+  cursor: pointer;
+}
+.custom-btn:hover::before {
+  width: 100%;
+}
+.custom-btn:hover::after {
+  width: 100%;
+  left: 0%;
+}
+.custom-btn::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: black;
+  transition: all 0.1s;
+}
+.custom-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 0%;
+  height: 2px;
+  background: black;
+  transition: all 1s;
 }

@@ -41,23 +41,12 @@
             >Contact Us</a
           >
         </li>
-
-        <!-- Dropdown for Year Selection -->
-        <!-- <li class="nav-item">
-          <mat-form-field class="select-boxes">
-            <mat-select [(ngModel)]="selectedValue" placeholder="Select Year">
-              <mat-option *ngFor="let year of years" [value]="year">
-                {{ year }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </li> -->
       </ul>
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item me-2 mt-1 position-relative">
           <a class="nav-link" routerLink="/cart" matTooltip="Cart">
-            <span class="material-icons custom-color">shopping_cart</span>
+            <span class="material-icons">shopping_cart</span>
             <span
               class="badge position-absolute top-0 start-100 translate-middle rounded-pill"
               *ngIf="items > 0"
@@ -75,7 +64,7 @@
             aria-expanded="false"
             role="button"
           >
-            <span class="material-icons fs-2 custom-color">account_circle</span>
+            <span class="material-icons fs-2">account_circle</span>
           </a>
           <ul
             class="dropdown-menu dropdown-menu-end"

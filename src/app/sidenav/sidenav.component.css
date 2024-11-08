@@ -1,3 +1,16 @@
 .sidebar {
   background-color: var(--primary-color);
+  padding: 4px;
+}
+a {
+  color: black;
+  text-decoration: none;
+  transition: 0.1s ease-in;
+  padding: 0%;
+}
+a:hover,
+:focus {
+  border-radius: 10px;
+  color: red;
+  background-color: var(--secondary-color);
 }

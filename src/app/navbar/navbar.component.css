@@ -1,12 +1,6 @@
 :root {
   --mat-form-field-container-vertical-padding: 4px; /* Set your desired padding here */
 }
-/* * {
-  border: 1px solid red;
-} */
-.custom-color {
-  color: var(--primary-color);
-}
 .badge {
   background-color: var(--primary-color);
 }
@@ -16,7 +10,15 @@
 }
 
 a {
+  color: black;
   text-decoration: none;
+  transition: 0.1s ease-in;
+  margin-right: 2px;
+}
+a:hover {
+  color: red;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
 }
 
 img {
@@ -27,6 +29,10 @@ img {
 }
 .select-boxes {
   width: 20%;
+}
+::ng-deep .navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: rgb(255 0 0);
 }
 ::ng-deep .mat-primary .mat-mdc-select-arrow {
   color: black;
