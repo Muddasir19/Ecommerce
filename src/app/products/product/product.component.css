@@ -1,12 +1,8 @@
 img {
   height: 500px;
   width: 500px;
-}
-/* * {
-  border: 1px solid red;
-} */
-p {
-  font-size: large;
+
+  object-fit: contain;
 }
 
 mat-icon:hover {
@@ -18,4 +14,7 @@ span {
 .btn {
   background-color: var(--button-color);
   color: var(--button-color-text);
+}
+.price {
+  color: var(--text-color-price);
 }

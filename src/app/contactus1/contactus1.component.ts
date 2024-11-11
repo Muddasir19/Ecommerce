@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-contactus1',
@@ -7,9 +9,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './contactus1.component.css',
 })
 export class Contactus1Component implements OnInit {
-  constructor() {
-    console.log('Contact us');
-  }
+  constructor(private dialog: MatDialog) {}
   myReactiveForm!: FormGroup;
 
   ngOnInit(): void {
@@ -32,5 +32,18 @@ export class Contactus1Component implements OnInit {
 
   onSubmit() {
     console.log(this.myReactiveForm.value);
+    this.dialog
+      .open(DialogComponent, {
+        data: {
+          title: 'Confirmation',
+          message: 'Do You Want to Submit?',
+        },
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (!res) return;
+
+        this.myReactiveForm.reset();
+      });
   }
 }

@@ -148,9 +148,11 @@
 
 .custom-btn {
   font-size: 22px;
-  border: 0;
+  border: 0px;
+
   position: relative;
   cursor: pointer;
+  padding: 10px 20px;
 }
 .custom-btn:hover::before {
   width: 100%;
@@ -165,17 +167,51 @@
   top: 100%;
   left: 0;
   width: 0%;
-  height: 2px;
+  height: 3px;
+  border-radius: 15px;
   background: black;
-  transition: all 0.1s;
+  transition: all 1s;
 }
 .custom-btn::after {
   content: "";
   position: absolute;
   top: 0;
+  border-radius: 15px;
   left: 100%;
   width: 0%;
-  height: 2px;
+  height: 3px;
+
   background: black;
   transition: all 1s;
+}
+
+.custom-container {
+  width: 100%;
+  width: 900px;
+  height: 250px;
+  display: flex;
+  gap: 10px;
+  margin-inline: auto;
+}
+.custom-card {
+  min-width: 50px;
+  height: 100%;
+  border-radius: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  position: relative;
+  transform: flex-grow 0.5s ease;
+}
+.custom-card:hover {
+  flex-grow: 12;
+}
+.custom-img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+}
+.custom-img:hover {
+  object-fit: cover;
 }

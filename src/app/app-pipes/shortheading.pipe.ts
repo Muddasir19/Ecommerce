@@ -4,10 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'shortheading',
 })
 export class ShortheadingPipe implements PipeTransform {
-  transform(value: string): any {
+  transform(value: string, length: number): any {
     let newValue;
     if (value) {
-      newValue = value.slice(0, 40);
+      newValue = value.slice(0, length);
     } else {
       newValue = value;
     }

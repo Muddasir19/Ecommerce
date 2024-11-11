@@ -42,7 +42,7 @@
       (ngSubmit)="onSubmit()"
     >
       <div class="row m-0 p-0" formGroupName="fullName">
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6">
           <label for="first-name" class="form-label">First Name</label>
           <input
             type="text"
@@ -53,15 +53,12 @@
           />
           <small
             class="text-danger"
-            *ngIf="
-              !myReactiveForm.get('fullName.firstName')!.valid &&
-              myReactiveForm.get('fullName.firstName')!.touched
-            "
+            *ngIf="!myReactiveForm.get('fullName.firstName')!.valid"
           >
             Please Enter First Name</small
           >
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6">
           <label for="last-name" class="form-label">Last Name</label>
           <input
             type="text"
@@ -72,10 +69,7 @@
           />
           <small
             class="text-danger"
-            *ngIf="
-              !myReactiveForm.get('fullName.lastName')!.valid &&
-              myReactiveForm.get('fullName.lastName')!.touched
-            "
+            *ngIf="!myReactiveForm.get('fullName.lastName')!.valid"
           >
             Please Enter Last Name</small
           >
@@ -90,13 +84,7 @@
           name="email"
           formControlName="email"
         />
-        <small
-          class="text-danger"
-          *ngIf="
-            !myReactiveForm.get('email')!.valid &&
-            myReactiveForm.get('email')!.touched
-          "
-        >
+        <small class="text-danger" *ngIf="!myReactiveForm.get('email')!.valid">
           Please Enter Valid Email</small
         >
       </div>
@@ -116,10 +104,7 @@
         </div>
         <small
           class="text-danger"
-          *ngIf="
-            !myReactiveForm.get('phoneNo')!.valid &&
-            myReactiveForm.get('phoneNo')!.touched
-          "
+          *ngIf="!myReactiveForm.get('phoneNo')!.valid"
         >
           Please Enter Phone no</small
         >
@@ -200,10 +185,7 @@
         ></textarea>
         <small
           class="text-danger"
-          *ngIf="
-            !myReactiveForm.get('message')?.valid &&
-            myReactiveForm.get('message')?.touched
-          "
+          *ngIf="!myReactiveForm.get('message')?.valid"
         >
           Please Enter Message</small
         >

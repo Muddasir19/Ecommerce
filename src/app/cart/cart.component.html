@@ -49,8 +49,10 @@
             />
           </div>
           <div class="col-12 col-md-5">
-            <h5 class="fw-bold mb-1">{{ prod.title | shortheading }}</h5>
-            <p class="text-muted mb-2">{{ prod.description | shortheading }}</p>
+            <h5 class="fw-bold mb-1">{{ prod.title | shortheading : 40 }}</h5>
+            <p class="text-muted mb-2">
+              {{ prod.description | shortheading : 40 }}
+            </p>
             <p class="fw-bold h5 custom-text">Price: ${{ prod.price }}</p>
           </div>
           <div class="col-12 col-md-3 text-center">

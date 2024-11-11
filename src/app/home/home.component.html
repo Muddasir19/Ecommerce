@@ -42,7 +42,7 @@
           >
             <h5>{{ carouse.heading }}</h5>
             <p>{{ carouse.para }}</p>
-            <a class="btn custom-btn">Show Details</a>
+            <button class="custom-btn">Show Details</button>
           </div>
         </div>
       </ng-container>
@@ -72,6 +72,17 @@
     <p class="obj p-0"><mat-icon>local_shipping</mat-icon></p>
   </div>
 
+  <!--  -->
+
+  <!-- not working properly -->
+  <!-- <div class="mx-auto custom-container">
+    <div class="custom-card">
+      <img src="/homepage/menClothing.jpg" class="img-fluid custom-img" />
+    </div>
+    <div class="custom-card">
+      <img src="/homepage/menClothing.jpg" class="img-fluid custom-img" />
+    </div>
+  </div> -->
   <!--  -->
   <div class="container mt-5">
     <div class="row justify-content-center">
@@ -112,7 +123,7 @@
     <div class="carousel-inner">
       <h1 class="text-center">Trending</h1>
       <ng-container *ngFor="let catalog of catalogDetails">
-        <div class="{{ catalog.class }}" data-bs-interval="500">
+        <div class="{{ catalog.class }}" data-bs-interval="1500">
           <div class="row mb-5 justify-content-center">
             <div
               class="col-12 col-sm-6 col-md-4 col-lg-2"
@@ -128,9 +139,7 @@
                   />
                   <div class="card-body text-center">
                     <h5 class="card-title text-truncate">{{ prod.title }}</h5>
-                    <p class="card-text">
-                      {{ prod.description | shortheading }}
-                    </p>
+
                     <div class="d-flex justify-content-center">
                       <a
                         [routerLink]="['/products/product', prod.id]"
@@ -164,7 +173,7 @@
           <div class="card-body text-center">
             <h5 class="card-title text-truncate">{{ prod.title }}</h5>
             <p class="card-text">
-              {{ prod.description | shortheading }}
+              {{ prod.description | shortheading : 30 }}
             </p>
             <div class="d-flex justify-content-center mt-2">
               <a [routerLink]="['/products/product', prod.id]" class="btn"
@@ -190,7 +199,7 @@
           />
           <div class="card-body text-center">
             <h5 class="card-title text-truncate">{{ prod.title }}</h5>
-            <p class="card-text">{{ prod.description | shortheading }}</p>
+            <p class="card-text">{{ prod.description | shortheading : 30 }}</p>
             <div class="d-flex justify-content-center mt-2">
               <a [routerLink]="['/products/product', prod.id]" class="btn"
                 >View Details</a

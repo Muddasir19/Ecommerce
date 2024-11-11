@@ -4,6 +4,9 @@
 .badge {
   background-color: var(--primary-color);
 }
+.navbar-brand {
+  cursor: pointer;
+}
 
 .logo {
   font-family: fantasy;
@@ -32,7 +35,7 @@ img {
 }
 ::ng-deep .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: rgb(255 0 0);
+  color: var(--primary-color);
 }
 ::ng-deep .mat-primary .mat-mdc-select-arrow {
   color: black;
