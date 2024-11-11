@@ -16,7 +16,7 @@ a {
   margin-right: 2px;
 }
 a:hover {
-  color: red;
+  color: var(--primary-color);
   background-color: var(--secondary-color);
   border-radius: 10px;
 }

@@ -1,10 +1,11 @@
 :root {
-  --primary-color: #a18a68;
-  --secondary-color: #c4a77d;
-  --button-color: #a18a68;
+  --primary-color: #4a628a;
+  --secondary-color: #7ab2d3;
+  --button-color: var(--primary-color);
+  --background-color: var(--secondary-color);
   --button-color-text: white;
   --text-color-price: red;
-  --text-color-heading: black;
+  --text-color-heading: var(--primary-color);
   --text-color: black;
 }
 
