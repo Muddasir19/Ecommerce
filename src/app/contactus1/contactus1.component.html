@@ -1,33 +1,30 @@
-<div class="container">
+<div class="container min-vh-100 mt-5">
   <div
     class="text-center text-white mt-2 ms-2 p-2"
     style="background-color: var(--background-color)"
   >
-    <p class="fs-2 fw-bold p-1 m-0">Contact US</p>
+    <p class="fs-2 fw-bold p-1 m-0 mt-2">Contact Us</p>
     <p class="m-0 p-0">Any question or remarks? Just write us a message!</p>
   </div>
 
-  <div class="row ms-2 vh-100">
+  <div class="row ms-2">
     <div
-      class="text-white col-lg-5 col-12 p-3 mb-4"
+      class="text-white col-lg-5 col-md-6 col-12 p-3 mb-4"
       style="background-color: var(--background-color)"
     >
-      <div class="d-flex flex-column align-content-between h-100">
+      <div class="d-flex flex-column h-100 justify-content-between">
         <div>
-          <h2 class="mt-3 text-center text-lg">Contact Information</h2>
-          <p class="text-center">Say Something to start a live Chat!</p>
+          <p class="mt-3 fs-2 fw-bold text-center">Contact Information</p>
+          <p class="text-center">Say something to start a live chat!</p>
         </div>
         <div class="text-center">
           <h3>Phone No</h3>
           <p>+92 300 0000000</p>
-
           <h3>Email</h3>
           <p>xyz-gmail.com</p>
-
           <h3>Location</h3>
           <p>Lorem ipsum dolor sit amet.</p>
         </div>
-
         <div class="d-flex justify-content-center gap-3 mt-auto">
           <a href="#" class="text-white">Twitter</a>
           <a href="#" class="text-white">Instagram</a>
@@ -37,12 +34,12 @@
     </div>
 
     <form
-      class="bg-light col-lg-7 col-12 row p-3"
+      class="bg-light mt-5 col-lg-7 col-md-6 col-12 p-3"
       [formGroup]="myReactiveForm"
       (ngSubmit)="onSubmit()"
     >
-      <div class="row m-0 p-0" formGroupName="fullName">
-        <div class="col-md-6">
+      <div class="row m-0">
+        <div class="col-md-6 mb-3" formGroupName="fullName">
           <label for="first-name" class="form-label">First Name</label>
           <input
             type="text"
@@ -58,7 +55,7 @@
             Please Enter First Name</small
           >
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3" formGroupName="fullName">
           <label for="last-name" class="form-label">Last Name</label>
           <input
             type="text"
@@ -75,44 +72,48 @@
           >
         </div>
       </div>
-      <div class="col-md-6 mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          name="email"
-          formControlName="email"
-        />
-        <small class="text-danger" *ngIf="!myReactiveForm.get('email')!.valid">
-          Please Enter Valid Email</small
-        >
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="phone-number" class="form-label">Phone Number</label>
-        <div class="phone-box">
-          <label class="prefix" for="phone-number">+92</label>
+      <div class="row m-0">
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Email</label>
           <input
-            type="text"
-            class="form-control ph"
-            id="phone-number"
-            name="phoneNumber"
-            maxlength="10"
-            formControlName="phoneNo"
-            placeholder="3000000000"
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            formControlName="email"
           />
+          <small
+            class="text-danger"
+            *ngIf="!myReactiveForm.get('email')!.valid"
+          >
+            Please Enter Valid Email</small
+          >
         </div>
-        <small
-          class="text-danger"
-          *ngIf="!myReactiveForm.get('phoneNo')!.valid"
-        >
-          Please Enter Phone no</small
-        >
+        <div class="col-md-6 mb-3">
+          <label for="phone-number" class="form-label">Phone Number</label>
+          <div class="d-flex align-items-center">
+            <label class="me-1">+92</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone-number"
+              name="phoneNumber"
+              maxlength="10"
+              formControlName="phoneNo"
+              placeholder="3000000000"
+            />
+          </div>
+          <small
+            class="text-danger"
+            *ngIf="!myReactiveForm.get('phoneNo')!.valid"
+          >
+            Please Enter Phone no</small
+          >
+        </div>
       </div>
-      <!-- Select Query Below -->
-      <div class="col-12 mb-3 row">
+      <div class="row m-0">
         <label class="form-label">Select Subject</label>
-        <div class="col-sm-6">
+        <div class="col-6 col-sm-3 mb-2">
           <input
             type="radio"
             id="General Query"
@@ -124,7 +125,7 @@
             >General Query</label
           >
         </div>
-        <div class="col-sm-6">
+        <div class="col-6 col-sm-3 mb-2">
           <input
             type="radio"
             name="query"
@@ -135,51 +136,38 @@
           />
           <label for="Support" class="form-check-label ps-2">Support</label>
         </div>
-        <div class="col-sm-6">
+        <div class="col-6 col-sm-3 mb-2">
           <input
             type="radio"
             name="query"
-            formControlName="query"
             id="Feedback"
-            class="form-check-input"
             value="Feedback"
+            class="form-check-input"
+            formControlName="query"
           />
           <label for="Feedback" class="form-check-label ps-2">Feedback</label>
         </div>
-        <div class="col-sm-6">
+        <div class="col-6 col-sm-3 mb-2">
           <input
             type="radio"
             name="query"
-            formControlName="query"
             id="Other"
             value="Other"
             class="form-check-input"
+            formControlName="query"
           />
           <label for="Other" class="form-check-label ps-2">Other</label>
         </div>
       </div>
 
-      <!-- <div class="form-group" formArrayName="skills">
-        <label>Skills</label>
-        <input
-          type="text"
-          class="form-control my-2 w-25"
-          placeholder="Add Skills"
-          *ngFor="let skill of skillsFormValue.controls; let i = index"
-          [formControlName]="i"
-        />
-        <button class="btn btn-success btn-sm p-1">Add Skills</button>
-      </div> -->
-
-      <!-- Message Below -->
-      <div class="col-12 mb-3">
+      <div class="mb-3">
         <label for="message" class="form-label">Message</label>
         <textarea
           class="form-control"
           id="message"
           name="message"
           rows="4"
-          minlength="10 "
+          minlength="10"
           formControlName="message"
           placeholder="Type Message Here"
         ></textarea>
@@ -190,7 +178,37 @@
           Please Enter Message</small
         >
       </div>
-      <div class="col-12 text-center">
+      <!-- <div class="form-group" formArrayName="skills">
+        <div class="d-flex justify-content-between">
+          <label>Skills</label>
+          <button
+            type="button"
+            class="btn btn-success btn-sm p-1 d-flex align-items-center"
+            (click)="addSkills()"
+          >
+            <mat-icon>add</mat-icon> Add Skills
+          </button>
+        </div>
+        <div
+          *ngFor="let skill of skillsFormValue.controls; let i = index"
+          class="d-flex align-items-center my-2"
+        >
+          <input
+            type="text"
+            class="form-control me-2"
+            placeholder="Add Skills"
+            [formControlName]="i"
+          />
+          <button
+            type="button"
+            class="btn btn-sm p-2 bg-danger d-flex align-items-center justify-content-center"
+            (click)="deleteSkills(i)"
+          >
+            <mat-icon class="fs-4">delete</mat-icon>
+          </button>
+        </div>
+      </div> -->
+      <div class="text-center">
         <button
           type="submit"
           class="btn btn-primary"

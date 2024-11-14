@@ -21,7 +21,7 @@ export class Contactus1Component implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       phoneNo: new FormControl(null, Validators.required),
       query: new FormControl('Other'),
-      skills: new FormArray([new FormControl(null)]),
+      skills: new FormArray([new FormControl(null, Validators.required)]),
       message: new FormControl(null, Validators.required),
     });
   }
@@ -29,6 +29,15 @@ export class Contactus1Component implements OnInit {
   get skillsFormValue(): FormArray {
     return this.myReactiveForm.get('skills') as FormArray;
   }
+
+  // addSkills() {
+  //   (this.myReactiveForm.get('skills') as FormArray).push(
+  //     new FormControl(null, Validators.required)
+  //   );
+  // }
+  // deleteSkills(index: number) {
+  //   (this.myReactiveForm.get('skills') as FormArray).removeAt(index);
+  // }
 
   onSubmit() {
     console.log(this.myReactiveForm.value);
